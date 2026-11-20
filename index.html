@@ -124,25 +124,19 @@
     .pill:hover{ border-color: var(--accent); color: var(--accent); text-decoration: none; }
     .pill svg{ width: 14px; height: 14px; flex: 0 0 14px; }
 
-    /* Research */
-    .research-fig{ float: right; width: 300px; margin: 4px 0 12px 26px; }
-    .research-fig img{
-      display: block; width: 100%; height: auto; background: #fff;
-      border: 1px solid var(--line); border-radius: 10px; padding: 8px;
-    }
     figure{ margin: 0; }
-    .clear{ clear: both; }
 
-    /* Selected publications */
+
     .sel{ display: grid; grid-template-columns: 280px 1fr; gap: 22px; padding: 20px 0; border-top: 1px solid var(--line); }
     .sel.first{ border-top: 0; padding-top: 4px; }
-    .sel.nofig{ grid-template-columns: 1fr; }
     .sel-fig{
       background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 8px;
       display: flex; align-items: center; justify-content: center; align-self: start;
+      height: 200px;
     }
-    .sel-fig img{ display: block; width: 100%; height: auto; }
+    .sel-fig img{ display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
     .sel-title{ font-weight: 600; font-size: 18px; line-height: 1.4; }
+    #publications{ margin: 30px 0 0; font-size: 20px; }
     .sel-authors, .sel-venue{ font-size: 15px; color: var(--muted); }
     .sel-authors .me{ color: var(--text); font-weight: 600; }
     .sel p{ margin: 8px 0 0; font-size: 15.5px; line-height: 1.55; }
@@ -197,8 +191,7 @@
       .header{ flex-direction: column; align-items: flex-start; gap: 18px; margin-top: 30px; }
       .portrait{ width: 120px; height: 145px; }
       .cols, .notes, .outreach, .sel{ grid-template-columns: 1fr; }
-      .sel-fig{ max-width: 360px; }
-      .research-fig{ float: none; width: 100%; max-width: 340px; margin: 6px 0 16px; }
+      .sel-fig{ max-width: 380px; height: 190px; }
       .outreach-image{ max-width: 340px; }
     }
   </style>
@@ -210,7 +203,6 @@
       <span class="brand">David Blanco</span>
       <nav class="nav">
         <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
         <a href="#students">Students</a>
         <a href="#teaching">Teaching</a>
         <a href="#outreach">Outreach</a>
@@ -257,67 +249,57 @@
     <!-- RESEARCH -->
     <section id="research">
       <h2>Research</h2>
-      <figure class="research-fig">
-        <img src="research.jpg" alt="Contour plots from a research computation" loading="lazy" />
-      </figure>
       <p>
         I work at the interface between quantum information theory, quantum field theory and gravity.
         Much of my research uses information-theoretic quantities&mdash;entanglement entropy, relative entropy,
         mutual information and modular Hamiltonians&mdash;to learn about the structure of quantum field theories
         and about how spacetime geometry emerges in the AdS/CFT correspondence.
       </p>
-      <p>
-        Recent topics include entanglement and modular Hamiltonians of chiral fields on the torus,
-        modular conjugation for multicomponent regions, energy inequalities derived from relative entropy,
-        and volume fluctuations in Euclidean de Sitter quantum gravity.
-      </p>
 
-      <div class="clear"></div>
-    </section>
-
-    <!-- PUBLICATIONS -->
-    <section id="publications">
-      <h2>Selected publications</h2>
+      <h3 id="publications">Selected publications</h3>
       <div class="sel first">
-        <figure class="sel-fig"><img src="fig-desitter-volume.png" alt="Probability distribution of the volume in d = 3 and d = 4 for several values of the cosmological constant" loading="lazy" /></figure>
+        <figure class="sel-fig"><img src="fig-desitter-loop.png" alt="Saddle-point and one-loop probability distributions of the volume in four dimensions" loading="lazy" /></figure>
         <div>
           <div class="sel-title">Euclidean volume fluctuations in de Sitter quantum gravity</div>
           <div class="sel-authors"><span class="me">D. Blanco</span>, G. Pérez-Nadal, B. Sivilotti</div>
           <div class="sel-venue">JHEP 07 (2026) 244<span class="pub-links"><a href="https://arxiv.org/abs/2604.26045" target="_blank" rel="noopener">arXiv</a><a href="https://doi.org/10.1007/JHEP07(2026)244" target="_blank" rel="noopener">DOI</a></span></div>
-          <p>In Euclidean de Sitter gravity, the statistics of the total volume are encoded in how the partition function depends on the cosmological constant. We use this to obtain the probability distribution of the volume at several levels of approximation. In the classical limit it concentrates around the classical volume, and it spreads as quantum effects are turned on, increasingly favoring smaller universes.</p>
+          <p>In Euclidean de Sitter gravity, the statistics of the total volume are encoded in how the partition function depends on the cosmological constant. We use this to obtain the probability distribution of the volume at several levels of approximation. It concentrates around the classical volume in the classical limit and spreads as quantum effects are turned on, increasingly favoring smaller universes.</p>
         </div>
       </div>
       <div class="sel">
-        <figure class="sel-fig"><img src="fig-chiral-torus.png" alt="Points coupled by the non-local term of the modular Hamiltonian, accumulating near the endpoints a and b" loading="lazy" /></figure>
+        <figure class="sel-fig"><img src="fig-modular-flow.gif" alt="Animation of modular flow trajectories in a causal diamond" loading="lazy" /></figure>
         <div>
           <div class="sel-title">Modular Hamiltonian of a chiral fermion on the torus</div>
           <div class="sel-authors"><span class="me">D. Blanco</span>, G. Pérez-Nadal</div>
           <div class="sel-venue">Phys. Rev. D 100, 025003 (2019)<span class="pub-links"><a href="https://arxiv.org/abs/1905.05210" target="_blank" rel="noopener">arXiv</a><a href="https://doi.org/10.1103/PhysRevD.100.025003" target="_blank" rel="noopener">DOI</a></span></div>
-          <p>The modular Hamiltonian of a chiral fermion at non-zero temperature on a circle, computed with a method of images. It is non-local even for a single interval: each point couples to an infinite set of points that accumulate near the endpoints (figure). It was the first known example of a modular Hamiltonian with this behavior.</p>
+          <p>We compute the modular Hamiltonian of a chiral fermion at non-zero temperature on a circle (a torus in the Euclidean formalism) with a simple method of images. The result is non-local even for a single interval: each point couples to an infinite set of points that accumulate near the endpoints. It was the first known example of a modular Hamiltonian with this behavior.</p>
         </div>
       </div>
-      <div class="sel nofig">
+      <div class="sel">
+        <figure class="sel-fig"><img src="research.jpg" alt="Contour plots from the paper" loading="lazy" /></figure>
         <div>
           <div class="sel-title">Local temperatures and local terms in modular Hamiltonians<span class="badge">Editors’ Suggestion</span></div>
           <div class="sel-authors">R. Arias, <span class="me">D. Blanco</span>, H. Casini, M. Huerta</div>
           <div class="sel-venue">Phys. Rev. D 95, 065005 (2017)<span class="pub-links"><a href="https://arxiv.org/abs/1611.08517" target="_blank" rel="noopener">arXiv</a><a href="https://doi.org/10.1103/PhysRevD.95.065005" target="_blank" rel="noopener">DOI</a></span></div>
-          <p>Selected as a Physical Review D Editors’ Suggestion and featured on the journal’s front page.</p>
+          <p>We define analogues of the Unruh temperature for any quantum field theory and region, using relative entropy with localized excitations. In two dimensions they may come from a universal term in the modular Hamiltonian proportional to the stress tensor, which we check for free massive scalar and Dirac fields; in higher dimensions the local terms cannot be built from the stress tensor alone.</p>
         </div>
       </div>
-      <div class="sel nofig">
+      <div class="sel">
+        <figure class="sel-fig"><img src="fig-bekenstein.svg" alt="Schematic: positive and negative energy density in the Rindler wedge, weighted by 2πx in the modular Hamiltonian" loading="lazy" /></figure>
         <div>
           <div class="sel-title">Localization of negative energy and the Bekenstein bound</div>
           <div class="sel-authors"><span class="me">D. D. Blanco</span>, H. Casini</div>
           <div class="sel-venue">Phys. Rev. Lett. 111, 221601 (2013)<span class="pub-links"><a href="https://arxiv.org/abs/1309.1121" target="_blank" rel="noopener">arXiv</a><a href="https://doi.org/10.1103/PhysRevLett.111.221601" target="_blank" rel="noopener">DOI</a></span></div>
-          <p>Properties of relative entropy yield quantum energy inequalities and a rigorous version of the Bekenstein bound.</p>
+          <p>A simple argument shows that, in a conformal field theory, negative energy cannot be isolated far away from positive energy, which strongly constrains its dispersal. This is required for consistency with the Bekenstein bound written as positivity of relative entropy. We prove a new form of the bound, based on monotonicity of relative entropy, that further improves the localization bound.</p>
         </div>
       </div>
-      <div class="sel nofig">
+      <div class="sel">
+        <figure class="sel-fig"><img src="fig-relative-entropy.png" alt="Extremal surfaces in an AdS black hole background for an interval and its complement" loading="lazy" /></figure>
         <div>
           <div class="sel-title">Relative entropy and holography</div>
           <div class="sel-authors"><span class="me">D. D. Blanco</span>, H. Casini, L.-Y. Hung, R. C. Myers</div>
           <div class="sel-venue">JHEP 08 (2013) 060<span class="pub-links"><a href="https://arxiv.org/abs/1305.3182" target="_blank" rel="noopener">arXiv</a><a href="https://doi.org/10.1007/JHEP08(2013)060" target="_blank" rel="noopener">DOI</a></span></div>
-          <p>Formulated what is now known as the <i>first law of entanglement</i>, a natural extension of the first law of thermodynamics.</p>
+          <p>For two infinitesimally close states, relative entropy vanishes at first order, giving the <i>first law of entanglement</i>, ΔS = ΔH, between the entanglement entropy and the modular Hamiltonian. We evaluate relative entropy for spherical regions in AdS/CFT and check that the relevant equations and inequalities hold for a large class of states, strongly supporting the holographic entropy formula.</p>
         </div>
       </div>
       <p class="muted small sans" style="margin-top:14px">
