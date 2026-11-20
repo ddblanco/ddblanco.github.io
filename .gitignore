@@ -1,6 +1,5 @@
-# CV: kept locally only, not published (sources, build tools and PDFs live in cv/)
+# CV sources and build tools: local only. cv.pdf (root) is published but not linked from the site.
 cv/
-cv.pdf
 cv(esp).pdf
 # Files added by the user, not yet placed on the site
 giambiagi25.jpg
