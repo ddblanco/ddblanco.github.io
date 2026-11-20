@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const {
   Document, Packer, Paragraph, TextRun, ExternalHyperlink, Table, TableRow, TableCell,
-  WidthType, BorderStyle, AlignmentType, Footer, PageNumber, TabStopType, LevelFormat,
+  ImageRun, WidthType, BorderStyle, AlignmentType, Footer, PageNumber, TabStopType, LevelFormat,
   VerticalAlign,
 } = require('docx');
 const data = require('./cv_data.js');
@@ -115,12 +115,19 @@ function build(lang) {
     children: [new TextRun({ text: data.name, font: FONT, size: 52, smallCaps: true })] }));
   children.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 40 },
     children: [new TextRun({ text: tr(data.tagline, lang), font: FONT, size: 22, italics: true })] }));
-  const contact = [];
-  data.contact.forEach((c, i) => {
-    if (i) contact.push(new TextRun({ text: '  |  ', font: FONT, size: SZ, color: GRAY }));
-    contact.push(link(c.text, c.url));
-  });
-  children.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 30 }, children: contact }));
+  // Contact links, four per line
+  for (let k = 0; k < data.contact.length; k += 4) {
+    const contact = [];
+    data.contact.slice(k, k + 4).forEach((c, i) => {
+      if (i) contact.push(new TextRun({ text: '  |  ', font: FONT, size: SZ, color: GRAY }));
+      contact.push(new ExternalHyperlink({ link: c.url, children: [
+        new ImageRun({ type: 'png', data: fs.readFileSync(path.join(__dirname, 'icons', `${c.icon}.png`)),
+          transformation: { width: 12, height: 12 } }),
+        new TextRun({ text: ` ${c.text}`, font: FONT, size: SZ, color: ACCENT }),
+      ] }));
+    });
+    children.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 30 }, children: contact }));
+  }
   children.push(new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 60 },
     children: [new TextRun({ text: tr(data.affiliation, lang), font: FONT, size: 17, color: GRAY })] }));
 

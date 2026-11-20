@@ -1,11 +1,11 @@
-# Exports cv.docx -> ..\cv.pdf and cv(esp).docx -> ..\cv(esp).pdf using Microsoft Word.
+# Exports cv.docx -> ..\cv.pdf (published on the site) and cv(esp).docx -> cv(esp).pdf (local only) using Microsoft Word.
 # Each export runs in its own job with a timeout, because Word automation occasionally hangs.
 $ErrorActionPreference = 'Stop'
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 $root = Split-Path -Parent $here
 $pairs = @(
   @{ src = Join-Path $here 'cv.docx';      dst = Join-Path $root 'cv.pdf' },
-  @{ src = Join-Path $here 'cv(esp).docx'; dst = Join-Path $root 'cv(esp).pdf' }
+  @{ src = Join-Path $here 'cv(esp).docx'; dst = Join-Path $here 'cv(esp).pdf' }
 )
 $export = {
   param($src, $dst)

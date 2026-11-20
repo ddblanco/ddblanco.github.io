@@ -21,19 +21,21 @@ module.exports = {
     en: 'Instituto de Física de Buenos Aires (IFIBA, UBA-CONICET) and Department of Physics (FCEyN-UBA) · Ciudad Universitaria (1428), Buenos Aires, Argentina',
   },
   contact: [
-    { text: 'dblanco@df.uba.ar', url: 'mailto:dblanco@df.uba.ar' },
-    { text: 'ddblanco.github.io', url: 'https://ddblanco.github.io' },
-    { text: 'Google Scholar', url: 'https://scholar.google.com/citations?user=t5O0b0AAAAAJ&hl=en' },
-    { text: 'INSPIRE', url: 'https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=a%20D.Blanco.1' },
+    { icon: 'email', text: 'dblanco@df.uba.ar', url: 'mailto:dblanco@df.uba.ar' },
+    { icon: 'linkedin', text: 'daviddanielblanco', url: 'https://www.linkedin.com/in/daviddanielblanco' },
+    { icon: 'github', text: 'ddblanco', url: 'https://github.com/ddblanco' },
+    { icon: 'web', text: 'ddblanco.github.io', url: 'https://ddblanco.github.io' },
+    { icon: 'scholar', text: 'Google Scholar', url: 'https://scholar.google.com/citations?user=t5O0b0AAAAAJ&hl=en' },
+    { icon: 'inspire', text: 'INSPIRE', url: 'https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=a%20D.Blanco.1' },
   ],
 
   sections: [
     {
       title: { es: 'Posiciones actuales', en: 'Current positions' },
       items: [
-        { type: 'entry', title: { es: 'Investigador Adjunto – CONICET', en: 'Associate Researcher – CONICET' }, date: since(2019),
+        { type: 'entry', title: { es: 'Investigador Adjunto – CONICET', en: 'Associate Researcher (Investigador Adjunto) – CONICET' }, date: since(2019),
           detail: { es: 'Grupo de Física Teórica de Altas Energías, IFIBA (UBA-CONICET)', en: 'Theoretical High Energy Physics Group, IFIBA (UBA-CONICET)' } },
-        { type: 'entry', title: { es: 'Profesor Adjunto – Universidad de Buenos Aires', en: 'Assistant Professor – University of Buenos Aires' }, date: since(2025),
+        { type: 'entry', title: { es: 'Profesor Adjunto – Universidad de Buenos Aires', en: 'Assistant Professor (Profesor Adjunto) – University of Buenos Aires' }, date: since(2025),
           detail: { es: 'Cargo interino con dedicación exclusiva, Departamento de Física', en: 'Interim full-time position, Department of Physics' } },
       ],
     },
@@ -107,12 +109,12 @@ module.exports = {
       title: { es: 'Docencia', en: 'Teaching' },
       items: [
         { type: 'para', text: {
-          es: 'Materias y seminarios dictados a nivel universitario: Astrofísica, Circuitos superconductores para computación cuántica, Teoría cuántica de campos, Relatividad general, Electromagnetismo y óptica, Electromagnetismo avanzado, Mecánica cuántica, Mecánica clásica, Introducción a las redes neuronales.',
-          en: 'Courses and seminars taught at university level: Astrophysics, Superconducting circuits for quantum computation, Quantum field theory, General relativity, Electromagnetism and optics, Advanced electromagnetism, Quantum mechanics, Classical mechanics, Introduction to neural networks.' } },
+          es: 'Materias y seminarios dictados a nivel universitario: Astrofísica, Circuitos superconductores para computación cuántica, Teoría cuántica de campos, Teoría cuántica de campos avanzada, Relatividad general, Electromagnetismo y óptica, Electromagnetismo avanzado, Mecánica cuántica y Mecánica clásica.',
+          en: 'Courses and seminars taught at university level: Astrophysics, Superconducting circuits for quantum computation, Quantum field theory, Advanced quantum field theory, General relativity, Electromagnetism and optics, Advanced electromagnetism, Quantum mechanics and Classical mechanics.' } },
         { type: 'para', text: {
           es: 'Autor de un apunte introductorio de más de 200 páginas para la materia “Teoría cuántica de campos” [[link]](https://ddblanco.github.io/NotasQFT.pdf).',
           en: 'Author of a 200+ page introductory set of lecture notes for the course “Quantum field theory” (in Spanish) [[link]](https://ddblanco.github.io/NotasQFT.pdf).' } },
-        { type: 'entry', title: { es: 'Profesor Adjunto – Universidad de Buenos Aires', en: 'Assistant Professor – University of Buenos Aires' }, date: since(2025),
+        { type: 'entry', title: { es: 'Profesor Adjunto – Universidad de Buenos Aires', en: 'Assistant Professor (Profesor Adjunto) – University of Buenos Aires' }, date: since(2025),
           detail: { es: 'Cargo interino con dedicación exclusiva, Departamento de Física', en: 'Interim full-time position, Department of Physics' } },
         { type: 'entry', title: { es: 'Jefe de Trabajos Prácticos – Universidad de Buenos Aires', en: 'Main Teaching Assistant (JTP) – University of Buenos Aires' }, date: '2018 – 2025',
           detail: { es: 'Cargo ordinario con dedicación exclusiva, Departamento de Física', en: 'Regular full-time position, Department of Physics' } },
@@ -137,9 +139,9 @@ module.exports = {
         { type: 'line', head: { es: 'Director', en: 'Supervisor' }, text: 'Nicolás Otero', date: since(2026) },
         { type: 'line', head: { es: 'Director', en: 'Supervisor' }, text: 'Thiago Coscarelli', date: since(2026) },
         { type: 'line', head: { es: 'Director', en: 'Supervisor' }, text: 'Iñaki Schlottmann', date: since(2026) },
-        { type: 'line', head: { es: 'Director', en: 'Supervisor' }, text: 'Agustín Patxot', date: since(2025) },
-        { type: 'line', head: { es: 'Director', en: 'Supervisor' }, text: 'Octavio Rivarola', date: since(2025) },
-        { type: 'line', head: { es: 'Codirector', en: 'Co-supervisor' }, text: 'Lautaro Kinalczyk', date: since(2025) },
+        { type: 'line', head: { es: 'Director', en: 'Supervisor' }, text: 'Agustín Patxot', date: '2025 – 2026' },
+        { type: 'line', head: { es: 'Director', en: 'Supervisor' }, text: 'Octavio Rivarola', date: '2025 – 2026' },
+        { type: 'line', head: { es: 'Codirector', en: 'Co-supervisor' }, text: 'Lautaro Kinalczyk', date: '2025 – 2026' },
         { type: 'line', head: { es: 'Codirector', en: 'Co-supervisor' }, text: 'Daniel Fondevila', date: '2023 – 2024' },
         { type: 'line', head: { es: 'Director', en: 'Supervisor' }, text: 'Santiago Ansaldo', date: '2022 – 2023' },
         { type: 'line', head: { es: 'Director', en: 'Supervisor' }, text: 'Nicolás Abate', date: '2021 – 2022' },
@@ -281,17 +283,6 @@ module.exports = {
         { type: 'line', head: { es: 'Miembro del Comité Organizador de la Beca Instituto Balseiro', en: 'Organizing committee, Balseiro Institute Scholarship' }, text: 'Instituto Balseiro', date: '2012 – 2015' },
         { type: 'line', head: { es: 'Colaborador en la Exposición Anual CAB-IB', en: 'Collaborator at the CAB-IB Annual Exhibition' }, text: 'Instituto Balseiro', date: '2011' },
         { type: 'line', head: { es: 'Evaluador en la Competencia de Física “Albert Einstein”', en: 'Evaluator at the “Albert Einstein” Physics Contest' }, text: 'Instituto Politécnico Superior, Rosario', date: '2005' },
-      ],
-    },
-    {
-      title: { es: 'Habilidades e idiomas', en: 'Skills and languages' },
-      items: [
-        { type: 'bullets', items: [
-          { es: '**Habilidades:** resolución de problemas de física teórica y matemática; revisión crítica de resultados; docencia, diseño de ejercicios y evaluaciones; escritura científica; programación.',
-            en: '**Skills:** problem solving in theoretical physics and mathematics; critical review of results; teaching, design of exercises and evaluations; scientific writing; programming.' },
-          { es: '**Idiomas:** español (nativo), inglés (profesional), francés (básico), italiano (básico).',
-            en: '**Languages:** Spanish (native), English (professional), French (basic), Italian (basic).' },
-        ] },
       ],
     },
   ],

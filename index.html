@@ -33,7 +33,6 @@
       --line: #e2dfd6;
       --accent: #1f4e8c;
       --accent-soft: rgba(31,78,140,.10);
-      --wedge: rgba(31,78,140,.13);
       --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
       --sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
       color-scheme: light;
@@ -46,7 +45,6 @@
       --line: #2e323a;
       --accent: #8db4ec;
       --accent-soft: rgba(141,180,236,.12);
-      --wedge: rgba(141,180,236,.16);
       color-scheme: dark;
     }
 
@@ -127,60 +125,36 @@
     .pill svg{ width: 14px; height: 14px; flex: 0 0 14px; }
 
     /* Research */
-    .figures{ display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin: 22px 0 8px; }
+    .research-fig{ float: right; width: 300px; margin: 4px 0 12px 26px; }
+    .research-fig img{
+      display: block; width: 100%; height: auto; background: #fff;
+      border: 1px solid var(--line); border-radius: 10px; padding: 8px;
+    }
     figure{ margin: 0; }
-    .fig-box{
-      border: 1px solid var(--line); border-radius: 10px; background: var(--surface);
-      padding: 14px; display: flex; align-items: center; justify-content: center;
-      aspect-ratio: 1.18; overflow: hidden;
-    }
-    .fig-box svg{ width: 100%; height: 100%; }
-    .fig-box.photo{ background: #fff; }
-    .fig-box img{ max-width: 100%; max-height: 100%; display: block; }
-    figcaption{ font-size: 14.5px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
-    figcaption b{ color: var(--text); font-weight: 600; }
+    .clear{ clear: both; }
 
-    .rt-disk{ fill: none; stroke: var(--muted); stroke-width: 1.4; }
-    .rt-grid{ fill: none; stroke: var(--line); stroke-width: 1; }
-    .rt-wedge{ fill: var(--wedge); stroke: none; }
-    .rt-A{ fill: none; stroke: var(--accent); stroke-width: 4; stroke-linecap: round; }
-    .rt-gamma{ fill: none; stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5 4; }
-    .rt-label{ fill: var(--text); font-family: var(--serif); font-style: italic; font-size: 17px; }
-    .rt-label.acc{ fill: var(--accent); }
-    .rt-formula{ fill: var(--text); font-family: var(--serif); font-size: 15px; }
-
-    .highlights{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
-    .card{
-      border: 1px solid var(--line); border-radius: 10px; background: var(--surface);
-      padding: 14px 16px; font-size: 15px; line-height: 1.5;
+    /* Selected publications */
+    .sel{ display: grid; grid-template-columns: 280px 1fr; gap: 22px; padding: 20px 0; border-top: 1px solid var(--line); }
+    .sel.first{ border-top: 0; padding-top: 4px; }
+    .sel.nofig{ grid-template-columns: 1fr; }
+    .sel-fig{
+      background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 8px;
+      display: flex; align-items: center; justify-content: center; align-self: start;
     }
-    .card .tag{
-      display: inline-block; font-family: var(--sans); font-size: 11.5px; font-weight: 600;
-      letter-spacing: .04em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
-    }
-    .card h4{ margin: 0 0 6px; font-size: 15.5px; font-style: italic; font-weight: 600; }
-    .card p{ margin: 0; color: var(--muted); }
-
-    /* Publications */
-    .pubs{ list-style: none; margin: 0; padding: 0; }
-    .pubs li{
-      display: grid; grid-template-columns: 52px 1fr; gap: 10px;
-      padding: 11px 0; border-top: 1px solid var(--line);
-    }
-    .pubs li:first-child{ border-top: 0; }
-    .pub-year{ font-family: var(--sans); font-size: 13px; color: var(--muted); padding-top: 3px; }
-    .pub-title{ font-weight: 600; }
-    .pub-authors, .pub-venue{ font-size: 15px; color: var(--muted); }
-    .pub-authors .me{ color: var(--text); font-weight: 600; }
-    .pub-links{ font-family: var(--sans); font-size: 12.5px; margin-left: 6px; white-space: nowrap; }
+    .sel-fig img{ display: block; width: 100%; height: auto; }
+    .sel-title{ font-weight: 600; font-size: 18px; line-height: 1.4; }
+    .sel-authors, .sel-venue{ font-size: 15px; color: var(--muted); }
+    .sel-authors .me{ color: var(--text); font-weight: 600; }
+    .sel p{ margin: 8px 0 0; font-size: 15.5px; line-height: 1.55; }
+    .pub-links{ font-family: var(--sans); font-size: 12.5px; margin-left: 8px; white-space: nowrap; }
     .pub-links a{ margin-right: 8px; }
     .badge{
       font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: .03em;
       padding: 1px 7px; border-radius: 999px; background: var(--accent-soft); color: var(--accent);
-      margin-left: 6px; white-space: nowrap; vertical-align: 1px;
+      margin-left: 6px; white-space: nowrap; vertical-align: 2px;
     }
 
-    /* Two-column lists */
+
     .cols{ display: grid; grid-template-columns: 1fr 1fr; gap: 6px 32px; }
     .entry{ padding: 6px 0; }
     .entry .when{ font-family: var(--sans); font-size: 13px; color: var(--muted); }
@@ -222,9 +196,10 @@
       .topbar-inner{ justify-content: space-between; }
       .header{ flex-direction: column; align-items: flex-start; gap: 18px; margin-top: 30px; }
       .portrait{ width: 120px; height: 145px; }
-      .figures, .highlights, .cols, .notes, .outreach{ grid-template-columns: 1fr; }
+      .cols, .notes, .outreach, .sel{ grid-template-columns: 1fr; }
+      .sel-fig{ max-width: 360px; }
+      .research-fig{ float: none; width: 100%; max-width: 340px; margin: 6px 0 16px; }
       .outreach-image{ max-width: 340px; }
-      .pubs li{ grid-template-columns: 1fr; gap: 0; }
     }
   </style>
 </head>
@@ -255,8 +230,8 @@
       <div>
         <h1>David Blanco</h1>
         <div class="roles">
-          <div>Associate Researcher, CONICET &mdash; Instituto de Física de Buenos Aires (IFIBA)</div>
-          <div>Assistant Professor, Department of Physics, University of Buenos Aires</div>
+          <div>Associate Researcher (Investigador Adjunto), CONICET &mdash; Instituto de Física de Buenos Aires (IFIBA)</div>
+          <div>Assistant Professor (Profesor Adjunto), Department of Physics, FCEyN, University of Buenos Aires</div>
         </div>
         <div class="links">
           <a class="pill" href="mailto:dblanco@df.uba.ar">
@@ -266,10 +241,6 @@
           <a class="pill" href="cv.pdf" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
             CV
-          </a>
-          <a class="pill" href="cv(esp).pdf" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
-            CV (español)
           </a>
           <a class="pill" href="https://scholar.google.com/citations?user=t5O0b0AAAAAJ&amp;hl=en" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9.5 12 4l10 5.5-10 5.5z"/><path d="M6 11.7V16c0 1.6 2.7 3 6 3s6-1.4 6-3v-4.3"/></svg>
@@ -286,6 +257,9 @@
     <!-- RESEARCH -->
     <section id="research">
       <h2>Research</h2>
+      <figure class="research-fig">
+        <img src="research.jpg" alt="Contour plots from a research computation" loading="lazy" />
+      </figure>
       <p>
         I work at the interface between quantum information theory, quantum field theory and gravity.
         Much of my research uses information-theoretic quantities&mdash;entanglement entropy, relative entropy,
@@ -298,168 +272,59 @@
         and volume fluctuations in Euclidean de Sitter quantum gravity.
       </p>
 
-      <div class="figures">
-        <figure>
-          <div class="fig-box">
-            <svg viewBox="0 0 240 240" role="img" aria-labelledby="rt-title">
-              <title id="rt-title">Ryu–Takayanagi surface in the Poincaré disk</title>
-              <!-- entanglement wedge of A -->
-              <path class="rt-wedge" d="M38.1 72.6 A100 100 0 0 1 201.9 72.6 A142.8 142.8 0 0 1 38.1 72.6 Z"/>
-              <!-- a few background geodesics -->
-              <path class="rt-grid" d="M33.4 80.0 A83.9 83.9 0 0 1 55.7 206.6"/>
-              <path class="rt-grid" d="M55.7 206.6 A83.9 83.9 0 0 1 184.3 206.6"/>
-              <path class="rt-grid" d="M184.3 206.6 A83.9 83.9 0 0 1 206.6 80.0"/>
-              <path class="rt-grid" d="M26.0 164.2 A46.6 46.6 0 0 1 85.8 224.0"/>
-              <path class="rt-grid" d="M154.2 224.0 A46.6 46.6 0 0 1 214.0 164.2"/>
-              <!-- boundary of AdS -->
-              <circle class="rt-disk" cx="120" cy="130" r="100"/>
-              <!-- region A on the boundary -->
-              <path class="rt-A" d="M38.1 72.6 A100 100 0 0 1 201.9 72.6"/>
-              <!-- minimal surface gamma_A -->
-              <path class="rt-gamma" d="M38.1 72.6 A142.8 142.8 0 0 0 201.9 72.6"/>
-              <text class="rt-label acc" x="114" y="23">A</text>
-              <text class="rt-label acc" x="108" y="116">γ<tspan font-size="11" dy="4">A</tspan></text>
-              <text class="rt-label" x="196" y="44">CFT</text>
-              <text class="rt-label" x="105" y="165">AdS</text>
-            </svg>
-          </div>
-          <figcaption>
-            <b>Entanglement and geometry.</b> In AdS/CFT the entanglement entropy of a boundary region
-            <i>A</i> equals the area of the minimal bulk surface <i>γ<sub>A</sub></i>,
-            <i>S<sub>A</sub></i> = Area(<i>γ<sub>A</sub></i>)/4<i>G<sub>N</sub></i>.
-            For small perturbations of the state, the first law of entanglement,
-            δ<i>S<sub>A</sub></i> = δ⟨<i>H<sub>A</sub></i>⟩, constrains how the bulk geometry responds.
-          </figcaption>
-        </figure>
-
-        <figure>
-          <div class="fig-box photo">
-            <img src="research.jpg" alt="Contour plots from a research computation" loading="lazy" />
-          </div>
-          <figcaption>
-            <b>From my research.</b> Contour plots from a numerical computation in one of my projects.
-          </figcaption>
-        </figure>
-      </div>
-
-      <div class="highlights">
-        <div class="card">
-          <span class="tag">JHEP 2013</span>
-          <h4>Relative entropy and holography</h4>
-          <p>Formulated what is now called the <i>first law of entanglement</i>, a natural extension of the first law of thermodynamics.</p>
-        </div>
-        <div class="card">
-          <span class="tag">Phys. Rev. Lett. 2013</span>
-          <h4>Localization of negative energy and the Bekenstein bound</h4>
-          <p>Properties of relative entropy yield quantum energy inequalities, linking quantum information and high-energy physics.</p>
-        </div>
-        <div class="card">
-          <span class="tag">PRD Editors’ Suggestion</span>
-          <h4>Local temperatures and local terms in modular Hamiltonians</h4>
-          <p>Highlighted by the editors of Physical Review D on the journal’s front page.</p>
-        </div>
-      </div>
+      <div class="clear"></div>
     </section>
 
     <!-- PUBLICATIONS -->
     <section id="publications">
-      <h2>Publications</h2>
-      <p class="muted small sans">
-        Also on <a href="https://inspirehep.net/literature?sort=mostrecent&amp;size=25&amp;page=1&amp;q=a%20D.Blanco.1" target="_blank" rel="noopener">INSPIRE</a>
-        and <a href="https://scholar.google.com/citations?user=t5O0b0AAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.
+      <h2>Selected publications</h2>
+      <div class="sel first">
+        <figure class="sel-fig"><img src="fig-desitter-volume.png" alt="Probability distribution of the volume in d = 3 and d = 4 for several values of the cosmological constant" loading="lazy" /></figure>
+        <div>
+          <div class="sel-title">Euclidean volume fluctuations in de Sitter quantum gravity</div>
+          <div class="sel-authors"><span class="me">D. Blanco</span>, G. Pérez-Nadal, B. Sivilotti</div>
+          <div class="sel-venue">JHEP 07 (2026) 244<span class="pub-links"><a href="https://arxiv.org/abs/2604.26045" target="_blank" rel="noopener">arXiv</a><a href="https://doi.org/10.1007/JHEP07(2026)244" target="_blank" rel="noopener">DOI</a></span></div>
+          <p>In Euclidean de Sitter gravity, the statistics of the total volume are encoded in how the partition function depends on the cosmological constant. We use this to obtain the probability distribution of the volume at several levels of approximation. In the classical limit it concentrates around the classical volume, and it spreads as quantum effects are turned on, increasingly favoring smaller universes.</p>
+        </div>
+      </div>
+      <div class="sel">
+        <figure class="sel-fig"><img src="fig-chiral-torus.png" alt="Points coupled by the non-local term of the modular Hamiltonian, accumulating near the endpoints a and b" loading="lazy" /></figure>
+        <div>
+          <div class="sel-title">Modular Hamiltonian of a chiral fermion on the torus</div>
+          <div class="sel-authors"><span class="me">D. Blanco</span>, G. Pérez-Nadal</div>
+          <div class="sel-venue">Phys. Rev. D 100, 025003 (2019)<span class="pub-links"><a href="https://arxiv.org/abs/1905.05210" target="_blank" rel="noopener">arXiv</a><a href="https://doi.org/10.1103/PhysRevD.100.025003" target="_blank" rel="noopener">DOI</a></span></div>
+          <p>The modular Hamiltonian of a chiral fermion at non-zero temperature on a circle, computed with a method of images. It is non-local even for a single interval: each point couples to an infinite set of points that accumulate near the endpoints (figure). It was the first known example of a modular Hamiltonian with this behavior.</p>
+        </div>
+      </div>
+      <div class="sel nofig">
+        <div>
+          <div class="sel-title">Local temperatures and local terms in modular Hamiltonians<span class="badge">Editors’ Suggestion</span></div>
+          <div class="sel-authors">R. Arias, <span class="me">D. Blanco</span>, H. Casini, M. Huerta</div>
+          <div class="sel-venue">Phys. Rev. D 95, 065005 (2017)<span class="pub-links"><a href="https://arxiv.org/abs/1611.08517" target="_blank" rel="noopener">arXiv</a><a href="https://doi.org/10.1103/PhysRevD.95.065005" target="_blank" rel="noopener">DOI</a></span></div>
+          <p>Selected as a Physical Review D Editors’ Suggestion and featured on the journal’s front page.</p>
+        </div>
+      </div>
+      <div class="sel nofig">
+        <div>
+          <div class="sel-title">Localization of negative energy and the Bekenstein bound</div>
+          <div class="sel-authors"><span class="me">D. D. Blanco</span>, H. Casini</div>
+          <div class="sel-venue">Phys. Rev. Lett. 111, 221601 (2013)<span class="pub-links"><a href="https://arxiv.org/abs/1309.1121" target="_blank" rel="noopener">arXiv</a><a href="https://doi.org/10.1103/PhysRevLett.111.221601" target="_blank" rel="noopener">DOI</a></span></div>
+          <p>Properties of relative entropy yield quantum energy inequalities and a rigorous version of the Bekenstein bound.</p>
+        </div>
+      </div>
+      <div class="sel nofig">
+        <div>
+          <div class="sel-title">Relative entropy and holography</div>
+          <div class="sel-authors"><span class="me">D. D. Blanco</span>, H. Casini, L.-Y. Hung, R. C. Myers</div>
+          <div class="sel-venue">JHEP 08 (2013) 060<span class="pub-links"><a href="https://arxiv.org/abs/1305.3182" target="_blank" rel="noopener">arXiv</a><a href="https://doi.org/10.1007/JHEP08(2013)060" target="_blank" rel="noopener">DOI</a></span></div>
+          <p>Formulated what is now known as the <i>first law of entanglement</i>, a natural extension of the first law of thermodynamics.</p>
+        </div>
+      </div>
+      <p class="muted small sans" style="margin-top:14px">
+        Full list on <a href="https://inspirehep.net/literature?sort=mostrecent&amp;size=25&amp;page=1&amp;q=a%20D.Blanco.1" target="_blank" rel="noopener">INSPIRE</a>,
+        <a href="https://scholar.google.com/citations?user=t5O0b0AAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        and in the <a href="cv.pdf" target="_blank" rel="noopener">CV</a>.
       </p>
-      <ol class="pubs">
-        <li><span class="pub-year">2026</span><div>
-          <span class="pub-title">Euclidean volume fluctuations in de Sitter quantum gravity</span><br>
-          <span class="pub-authors"><span class="me">D. Blanco</span>, G. Pérez-Nadal, B. Sivilotti</span><br>
-          <span class="pub-venue">JHEP 07 (2026) 244</span>
-          <span class="pub-links"><a href="https://arxiv.org/abs/2604.26045">arXiv</a><a href="https://doi.org/10.1007/JHEP07(2026)244">DOI</a></span>
-        </div></li>
-        <li><span class="pub-year">2025</span><div>
-          <span class="pub-title">Entanglement of a chiral scalar on the torus</span><br>
-          <span class="pub-authors">N. Abate, <span class="me">D. Blanco</span>, A. Garbarz, M. Koifman, G. Pérez-Nadal</span><br>
-          <span class="pub-venue">JHEP 05 (2025) 152</span>
-          <span class="pub-links"><a href="https://arxiv.org/abs/2412.19332">arXiv</a><a href="https://doi.org/10.1007/JHEP05(2025)152">DOI</a></span>
-        </div></li>
-        <li><span class="pub-year">2023</span><div>
-          <span class="pub-title">Modular conjugation for multicomponent regions</span><br>
-          <span class="pub-authors">N. Abate, <span class="me">D. Blanco</span>, M. Koifman, G. Pérez-Nadal</span><br>
-          <span class="pub-venue">Phys. Rev. D 107, 045015 (2023)</span>
-          <span class="pub-links"><a href="https://arxiv.org/abs/2209.10711">arXiv</a><a href="https://doi.org/10.1103/PhysRevD.107.045015">DOI</a></span>
-        </div></li>
-        <li><span class="pub-year">2022</span><div>
-          <span class="pub-title">Rényi entropies of the massless Dirac field on the torus</span><br>
-          <span class="pub-authors"><span class="me">D. Blanco</span>, T. Ferreira Chase, J. Laurnagaray, G. Pérez-Nadal</span><br>
-          <span class="pub-venue">Phys. Rev. D 105, 045014 (2022)</span>
-          <span class="pub-links"><a href="https://arxiv.org/abs/2112.14237">arXiv</a><a href="https://doi.org/10.1103/PhysRevD.105.045014">DOI</a></span>
-        </div></li>
-        <li><span class="pub-year">2019</span><div>
-          <span class="pub-title">Rényi mutual information inequalities from Rindler positivity</span><br>
-          <span class="pub-authors"><span class="me">D. Blanco</span>, L. Lanosa, M. Leston, G. Pérez-Nadal</span><br>
-          <span class="pub-venue">JHEP 12 (2019) 078</span>
-          <span class="pub-links"><a href="https://arxiv.org/abs/1909.03144">arXiv</a><a href="https://doi.org/10.1007/JHEP12(2019)078">DOI</a></span>
-        </div></li>
-        <li><span class="pub-year">2019</span><div>
-          <span class="pub-title">Entanglement of a chiral fermion on the torus</span><br>
-          <span class="pub-authors"><span class="me">D. Blanco</span>, A. Garbarz, G. Pérez-Nadal</span><br>
-          <span class="pub-venue">JHEP 09 (2019) 076</span>
-          <span class="pub-links"><a href="https://arxiv.org/abs/1906.07057">arXiv</a><a href="https://doi.org/10.1007/JHEP09(2019)076">DOI</a></span>
-        </div></li>
-        <li><span class="pub-year">2019</span><div>
-          <span class="pub-title">Modular Hamiltonian of a chiral fermion on the torus</span><br>
-          <span class="pub-authors"><span class="me">D. Blanco</span>, G. Pérez-Nadal</span><br>
-          <span class="pub-venue">Phys. Rev. D 100, 025003 (2019)</span>
-          <span class="pub-links"><a href="https://arxiv.org/abs/1905.05210">arXiv</a><a href="https://doi.org/10.1103/PhysRevD.100.025003">DOI</a></span>
-        </div></li>
-        <li><span class="pub-year">2018</span><div>
-          <span class="pub-title">Gravity from entanglement for boundary subregions</span><br>
-          <span class="pub-authors"><span class="me">D. Blanco</span>, M. Leston, G. Pérez-Nadal</span><br>
-          <span class="pub-venue">JHEP 06 (2018) 130</span>
-          <span class="pub-links"><a href="https://arxiv.org/abs/1803.01874">arXiv</a><a href="https://doi.org/10.1007/JHEP06(2018)130">DOI</a></span>
-        </div></li>
-        <li><span class="pub-year">2018</span><div>
-          <span class="pub-title">Modular energy inequalities from relative entropy</span><br>
-          <span class="pub-authors"><span class="me">D. Blanco</span>, H. Casini, M. Leston, F. Rosso</span><br>
-          <span class="pub-venue">JHEP 01 (2018) 154</span>
-          <span class="pub-links"><a href="https://arxiv.org/abs/1711.04816">arXiv</a><a href="https://doi.org/10.1007/JHEP01(2018)154">DOI</a></span>
-        </div></li>
-        <li><span class="pub-year">2017</span><div>
-          <span class="pub-title">Local temperatures and local terms in modular Hamiltonians</span><span class="badge">Editors’ Suggestion</span><br>
-          <span class="pub-authors">R. Arias, <span class="me">D. Blanco</span>, H. Casini, M. Huerta</span><br>
-          <span class="pub-venue">Phys. Rev. D 95, 065005 (2017)</span>
-          <span class="pub-links"><a href="https://arxiv.org/abs/1611.08517">arXiv</a><a href="https://doi.org/10.1103/PhysRevD.95.065005">DOI</a></span>
-        </div></li>
-        <li><span class="pub-year">2017</span><div>
-          <span class="pub-title">Quantum information measures and their applications in quantum field theory</span><span class="badge">PhD thesis</span><br>
-          <span class="pub-authors"><span class="me">D. Blanco</span></span><br>
-          <span class="pub-venue">Instituto Balseiro</span>
-          <span class="pub-links"><a href="https://arxiv.org/abs/1702.07384">arXiv</a></span>
-        </div></li>
-        <li><span class="pub-year">2015</span><div>
-          <span class="pub-title">Entanglement entropy as a witness of the Aharonov–Bohm effect in QFT</span><br>
-          <span class="pub-authors">R. E. Arias, <span class="me">D. D. Blanco</span>, H. Casini</span><br>
-          <span class="pub-venue">J. Phys. A: Math. Theor. 48, 145401 (2015)</span>
-          <span class="pub-links"><a href="https://arxiv.org/abs/1409.3269">arXiv</a><a href="https://doi.org/10.1088/1751-8113/48/14/145401">DOI</a></span>
-        </div></li>
-        <li><span class="pub-year">2013</span><div>
-          <span class="pub-title">Localization of negative energy and the Bekenstein bound</span><br>
-          <span class="pub-authors"><span class="me">D. D. Blanco</span>, H. Casini</span><br>
-          <span class="pub-venue">Phys. Rev. Lett. 111, 221601 (2013)</span>
-          <span class="pub-links"><a href="https://arxiv.org/abs/1309.1121">arXiv</a><a href="https://doi.org/10.1103/PhysRevLett.111.221601">DOI</a></span>
-        </div></li>
-        <li><span class="pub-year">2013</span><div>
-          <span class="pub-title">Relative entropy and holography</span><br>
-          <span class="pub-authors"><span class="me">D. D. Blanco</span>, H. Casini, L.-Y. Hung, R. C. Myers</span><br>
-          <span class="pub-venue">JHEP 08 (2013) 060</span>
-          <span class="pub-links"><a href="https://arxiv.org/abs/1305.3182">arXiv</a><a href="https://doi.org/10.1007/JHEP08(2013)060">DOI</a></span>
-        </div></li>
-        <li><span class="pub-year">2011</span><div>
-          <span class="pub-title">Entanglement entropy for non-coplanar regions in quantum field theory</span><br>
-          <span class="pub-authors"><span class="me">D. D. Blanco</span>, H. Casini</span><br>
-          <span class="pub-venue">Class. Quantum Grav. 28, 215015 (2011)</span>
-          <span class="pub-links"><a href="https://arxiv.org/abs/1103.4400">arXiv</a><a href="https://doi.org/10.1088/0264-9381/28/21/215015">DOI</a></span>
-        </div></li>
-      </ol>
     </section>
 
     <!-- STUDENTS -->
@@ -469,15 +334,13 @@
       <div class="cols">
         <div class="entry"><span class="what">Mateo Koifman</span><span class="where">PhD in Physics, UBA &middot; since 2021</span></div>
         <div class="entry"><span class="what">Bruno Sivilotti</span><span class="where">PhD in Physics, UBA (CONICET fellowship) &middot; since 2025</span></div>
-        <div class="entry"><span class="what">Agustín Patxot</span><span class="where">Licentiate thesis, UBA &middot; since 2025</span></div>
-        <div class="entry"><span class="what">Octavio Rivarola</span><span class="where">Licentiate thesis, UBA &middot; since 2025</span></div>
-        <div class="entry"><span class="what">Lautaro Kinalczyk</span><span class="where">Licentiate thesis, UBA (co-supervised) &middot; since 2025</span></div>
         <div class="entry"><span class="what">Thiago Coscarelli</span><span class="where">Licentiate thesis, UBA &middot; since 2026</span></div>
         <div class="entry"><span class="what">Nicolás Otero</span><span class="where">Licentiate thesis, UBA &middot; since 2026</span></div>
         <div class="entry"><span class="what">Iñaki Schlottmann</span><span class="where">Licentiate thesis, UBA &middot; since 2026</span></div>
       </div>
       <h3>Former licentiate students</h3>
       <p class="muted" style="font-size:15.5px">
+        Agustín Patxot (2026) &middot; Octavio Rivarola (2026) &middot; Lautaro Kinalczyk (2026, co-supervised) &middot;
         Daniel Fondevila (2024, co-supervised) &middot; Santiago Ansaldo (2023) &middot; Nicolás Abate (2022) &middot;
         Juan Laurnagaray (2022) &middot; María Agustina Pereyra Grau (2022, co-supervised) &middot;
         Tomás Ferreira Chase (2020) &middot; Mateo Koifman (2020, co-supervised) &middot; Gastón Maffei (2020) &middot;
@@ -492,6 +355,7 @@
       <p>Undergraduate and graduate courses I have taught at the University of Buenos Aires and Instituto Balseiro:</p>
       <ul class="chips">
         <li>Quantum field theory</li>
+        <li>Advanced quantum field theory</li>
         <li>General relativity</li>
         <li>Astrophysics</li>
         <li>Superconducting circuits for quantum computation</li>
@@ -499,7 +363,6 @@
         <li>Classical mechanics</li>
         <li>Electromagnetism and optics</li>
         <li>Advanced electromagnetism</li>
-        <li>Introduction to neural networks</li>
       </ul>
       <div class="notes">
         <a class="note" href="NotasQFT.pdf" target="_blank" rel="noopener">
@@ -512,13 +375,6 @@
         </a>
       </div>
 
-      <h3>Schools and workshops organized</h3>
-      <div class="cols">
-        <div class="entry"><span class="when">2025</span><span class="what">Giambiagi Winter School on Holography, Black Holes and Information Theory</span><span class="where">Department of Physics, UBA</span></div>
-        <div class="entry"><span class="when">2024</span><span class="what">An entangled day: workshop on entanglement in quantum field theory</span><span class="where">Department of Physics, UBA</span></div>
-        <div class="entry"><span class="when">2023</span><span class="what">HEPTH Workshop on Neural Networks</span><span class="where">Instituto de Física de Buenos Aires</span></div>
-        <div class="entry"><span class="when">2018</span><span class="what">An infrared day: a workshop on infrared divergences in QFT</span><span class="where">IAFE, UBA</span></div>
-      </div>
     </section>
 
     <!-- OUTREACH -->

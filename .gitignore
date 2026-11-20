@@ -6,3 +6,7 @@ cv/cv modelo.pdf
 # Original Word files (kept locally as backup)
 cv/originales/
 ~$*
+# Spanish CV is kept locally only (not published)
+cv/cv(esp).docx
+cv/cv(esp).pdf
+cv(esp).pdf

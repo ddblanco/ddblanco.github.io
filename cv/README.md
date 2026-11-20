@@ -4,7 +4,9 @@ Both CVs come from a single source, `cv_data.js`, which holds Spanish and Englis
 
 - `cv_data.js`: content. Every field is `{ es, en }`, or a plain string when it is the same in both languages.
 - `build_cv.js`: generates `cv.docx` (English) and `cv(esp).docx` (Spanish) with the same format.
-- `export_pdf.ps1`: uses Microsoft Word to export `../cv.pdf` and `../cv(esp).pdf`, which are the files the site links to.
+- `export_pdf.ps1`: uses Microsoft Word to export `../cv.pdf`, which the site links to, and `cv(esp).pdf`.
+
+The Spanish CV (`cv(esp).docx` / `cv(esp).pdf`) stays local only and is listed in `.gitignore`.
 
 ```
 cd cv
