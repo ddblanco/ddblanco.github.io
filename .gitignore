@@ -1,14 +1,6 @@
-# CV build tooling
-cv/node_modules/
-cv/package-lock.json
-# Reference CV from someone else: do not publish
-cv/cv modelo.pdf
-# Original Word files (kept locally as backup)
-cv/originales/
-~$*
-# Spanish CV is kept locally only (not published)
-cv/cv(esp).docx
-cv/cv(esp).pdf
+# CV: kept locally only, not published (sources, build tools and PDFs live in cv/)
+cv/
+cv.pdf
 cv(esp).pdf
 # Files added by the user, not yet placed on the site
 giambiagi25.jpg
