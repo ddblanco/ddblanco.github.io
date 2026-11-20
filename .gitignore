@@ -1,0 +1,8 @@
+# CV build tooling
+cv/node_modules/
+cv/package-lock.json
+# Reference CV from someone else: do not publish
+cv/cv modelo.pdf
+# Original Word files (kept locally as backup)
+cv/originales/
+~$*
